@@ -1,0 +1,43 @@
+# macbook-thermal-control Configuration
+# Copy to config.yaml and edit as needed
+
+# CPU limit applied by cpulimit (%)
+cpu_limit: 85
+
+# Check interval in seconds (lower = more responsive, higher = less overhead)
+check_interval: 2
+
+# CPU threshold to trigger limiting (%)
+# Processes exceeding this will be limited
+cpu_threshold: 35.0
+
+# Notification cooldown in seconds (per process)
+notification_cooldown: 30
+
+# Processes to ignore (exact match or substring)
+# System-critical processes that should never be limited
+ignored_processes:
+  - "kernel_task"
+  - "WindowServer"
+  - "root"
+  - "grep"
+  - "python"
+  - "python3"
+  - "loginwindow"
+  - "SystemUIServer"
+  - "Dock"
+  - "Finder"
+  - "cpulimit"
+  - "Terminal"
+  - "launchd"
+  - "coreaudiod"
+  # GPU system threads (kernel-level, don't limit)
+  - "WindowServer.gpu"
+  - "kernel_task.gpu"
+
+# Advanced settings
+# Set to true to enable debug logging
+debug: false
+
+# Log file (optional, empty = stdout only)
+log_file: ""
